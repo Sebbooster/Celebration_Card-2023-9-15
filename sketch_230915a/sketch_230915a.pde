@@ -40,8 +40,7 @@ void mousePressed() {
   println("Mouse X: "+mouseX, "Mouse Y: "+mouseY);
   //
   //xRect2, yRect2, widthRect2, heightRect2
-  if () ;
-  println("Button Activated");
+  if ( mouseX>xRect2 &&mouseX<xRect2+widthRect2 &&mouseY>yRect2 &&mouseY<yRect2+heightRect2 ) println("Button Activated");
 } //End mousePressed
 //
 //End MAIN Program
