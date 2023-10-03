@@ -2,6 +2,8 @@
   int appWidth, appHeight;
   float xRectBackground, yRectBackground, widthRectBackground, heightRectBackground;
   float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
+  float PImageX, PImageY, PImageWidth, PImageHeight;
+  PImage Pumpkin;
 //
 void setup() {
   //Print & Println
@@ -16,6 +18,10 @@ void setup() {
   appHeight = height;
   //
   //Population
+  PImageX = appWidth*1/2;
+  PImageY = appHeight*1/2;
+  PImageWidth = appWidth*3/4;
+  PImageHeight = appHeight*1/2;
   xRectBackground = appWidth*0;
   yRectBackground = appHeight*0;
   widthRectBackground = appWidth-1;
@@ -24,12 +30,17 @@ void setup() {
   yRectQuit = appHeight*1/4;
   widthRectQuit = appWidth*1/2;
   heightRectQuit = appHeight*1/2;
+  Pumpkin = loadImage("../imagesUsed/Portrait/light-up-traditional-pumpkin-upd.jpg");
+  //
+  //DIVs
+  rect(PImageX, PImageY, PImageWidth, PImageHeight);
   //
 } //End setup
 //
 void draw() {
   rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  rect(PImageX, PImageY, PImageWidth, PImageHeight);
 } //End draw
 //
 void keyPressed() {
