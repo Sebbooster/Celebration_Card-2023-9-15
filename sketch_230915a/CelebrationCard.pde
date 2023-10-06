@@ -18,10 +18,10 @@ void setup() {
   appHeight = height;
   //
   //Population
-  PImageX = appWidth*1/2;
-  PImageY = appHeight*1/2;
-  PImageWidth = appWidth*3/4;
-  PImageHeight = appHeight*1/2;
+  PImageX = appWidth*1/25;
+  PImageY = appHeight*1/4;
+  PImageWidth = appWidth*1/5;
+  PImageHeight = appHeight*1/3;
   xRectBackground = appWidth*0;
   yRectBackground = appHeight*0;
   widthRectBackground = appWidth-1;
@@ -41,6 +41,9 @@ void draw() {
   rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect(PImageX, PImageY, PImageWidth, PImageHeight);
+  //Image
+  image(Pumpkin, PImageX, PImageY, PImageWidth, PImageHeight);
+  //
 } //End draw
 //
 void keyPressed() {
