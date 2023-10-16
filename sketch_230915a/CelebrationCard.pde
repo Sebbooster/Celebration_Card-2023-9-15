@@ -3,18 +3,20 @@
   float xRectBackground, yRectBackground, widthRectBackground, heightRectBackground;
   float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
   float PImageX, PImageY, PImageWidth, PImageHeight;
-  PImage Pumpkin;
+  PImage Pumpkin, BlackHole;
   Boolean nightmode=false; //Note: clock can turn it on automatically
   Boolean brightnessControl=false; //Note arrows control
   int brightnessNumber=128; //range:1-225
-  color red=#ED3535, white=#FFFFFF;
+  color red=#ED3535, white=#FFFFFF, orange=#F58B19;
   String QButton = "X";
   PFont QButtonFont;
   int sizeFont, size;
+  float HTitleX, HTitleY, HTitleWidth, HTitleHeight;
+  String HapHalTitle = "Happy Halloween!";
 //
 void setup() {
   //Fonts and Text Work
-  QButtonFont = createFont("Onyx", 55);
+  QButtonFont = createFont("ArialMT", 55);
   //
   //Print & Println
   println("Hello World");
@@ -29,7 +31,7 @@ void setup() {
   //
   //Population
   PImageX = appWidth*1/25;
-  PImageY = appHeight*1/4;
+  PImageY = appHeight*1/2;
   PImageWidth = appWidth*1/5;
   PImageHeight = appHeight*1/3;
   //
@@ -38,34 +40,52 @@ void setup() {
   widthRectBackground = appWidth-1;
   heightRectBackground = appHeight-1;
   //
-  xRectQuit = appWidth*11/12;
-  yRectQuit = appHeight*1/350;
+  xRectQuit = appWidth*18/20;
+  yRectQuit = appHeight*0;
   widthRectQuit = appWidth*1/10;
   heightRectQuit = appHeight*1/13;
   //
+  HTitleX = appWidth*1/6;
+  HTitleY = appHeight*1/8;
+  HTitleWidth = appWidth*5/8;
+  HTitleHeight = appHeight*1/8;
+  //
   Pumpkin = loadImage("../imagesUsed/Portrait/light-up-traditional-pumpkin-upd.jpg");
+  BlackHole = loadImage("../imagesUsed/Landscape and Square/BlackHole.jpg");
   //
   //DIVs
   rect(PImageX, PImageY, PImageWidth, PImageHeight);
+  rect(HTitleX, HTitleY, HTitleWidth, HTitleHeight);
   //
 } //End setup
 //
 void draw() {
-  //ActualTextPlacement
+  //
+  rect(PImageX, PImageY, PImageWidth, PImageHeight);
+  rect(HTitleX, HTitleY, HTitleWidth, HTitleHeight);
+  //Image
+  //image(BlackHole, xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
+  image(Pumpkin, PImageX, PImageY, PImageWidth, PImageHeight);
+  //Text
+    rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
+   fill(red);
+  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+    //ActualTextPlacement
     fill(white); //ink
+    noFill();
   textAlign(CENTER, CENTER);
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 20;
   textFont(QButtonFont, size);
   text(QButton, xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   //
-  rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
-   fill(red);
-  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
-  //
-  rect(PImageX, PImageY, PImageWidth, PImageHeight);
-  //Image
-  image(Pumpkin, PImageX, PImageY, PImageWidth, PImageHeight);
+   fill(orange); //ink
+    noFill();
+  textAlign(CENTER, CENTER);
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  size = 20;
+  textFont(QButtonFont, size);
+  text(HapHalTitle, HTitleX, HTitleY, HTitleWidth, HTitleHeight);
   //
     if ( brightnessControl==true ) //grey scale 1/2 tint
   if (brightnessNumber<1) { 
