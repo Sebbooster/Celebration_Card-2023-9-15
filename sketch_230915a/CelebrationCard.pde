@@ -13,6 +13,7 @@
   int sizeFont, size;
   float HTitleX, HTitleY, HTitleWidth, HTitleHeight;
   String HapHalTitle = "Happy Halloween!";
+  float HDescX, HDescY, HDescWidth, HDescHeight;
 //
 void setup() {
   //Fonts and Text Work
@@ -31,10 +32,10 @@ void setup() {
   appHeight = height;
   //
   //Population
-  PImageX = appWidth*1/25;
-  PImageY = appHeight*1/2;
-  PImageWidth = appWidth*1/5;
-  PImageHeight = appHeight*1/3;
+  PImageX = appWidth*1/30;
+  PImageY = appHeight*1/15;
+  PImageWidth = appWidth*1/10;
+  PImageHeight = appHeight*1/6;
   //
   xRectBackground = appWidth*0;
   yRectBackground = appHeight*0;
@@ -51,12 +52,18 @@ void setup() {
   HTitleWidth = appWidth*5/8;
   HTitleHeight = appHeight*1/8;
   //
+  HDescX = appWidth*1/8;
+  HDescY = appHeight*3/10;
+  HDescWidth = appWidth*6/8;
+  HDescHeight = appHeight*5/8;
+  //
   Pumpkin = loadImage("../imagesUsed/Portrait/light-up-traditional-pumpkin-upd.jpg");
   BlackHole = loadImage("../imagesUsed/Landscape and Square/BlackHole.jpg");
   //
   //DIVs
   rect(PImageX, PImageY, PImageWidth, PImageHeight);
   rect(HTitleX, HTitleY, HTitleWidth, HTitleHeight);
+  rect(HDescX, HDescY, HDescWidth, HDescHeight);
   //
 } //End setup
 //
@@ -67,6 +74,7 @@ void draw() {
   rect(PImageX, PImageY, PImageWidth, PImageHeight);
   fill(white);
   rect(HTitleX, HTitleY, HTitleWidth, HTitleHeight);
+  rect(HDescX, HDescY, HDescWidth, HDescHeight);
   //Image
   //image(BlackHole, xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   image(Pumpkin, PImageX, PImageY, PImageWidth, PImageHeight);
