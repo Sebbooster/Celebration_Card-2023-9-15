@@ -7,16 +7,17 @@
   Boolean nightmode=false; //Note: clock can turn it on automatically
   Boolean brightnessControl=false; //Note arrows control
   int brightnessNumber=128; //range:1-225
-  color red=#ED3535, white=#FFFFFF, orange=#F58B19;
+  color red=#ED3535, white=#FFFFFF, orange=#F58B19, dorange=#B75F00;
   String QButton = "X";
-  PFont QButtonFont;
+  PFont QButtonFont, HalFont;
   int sizeFont, size;
   float HTitleX, HTitleY, HTitleWidth, HTitleHeight;
   String HapHalTitle = "Happy Halloween!";
 //
 void setup() {
   //Fonts and Text Work
-  QButtonFont = createFont("ArialMT", 55);
+  QButtonFont = createFont("Arial", 55);
+  HalFont = createFont("Blackadder ITC", 55);
   //
   //Print & Println
   println("Hello World");
@@ -60,14 +61,16 @@ void setup() {
 } //End setup
 //
 void draw() {
+   fill(dorange);
+   rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   //
   rect(PImageX, PImageY, PImageWidth, PImageHeight);
+  fill(white);
   rect(HTitleX, HTitleY, HTitleWidth, HTitleHeight);
   //Image
   //image(BlackHole, xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   image(Pumpkin, PImageX, PImageY, PImageWidth, PImageHeight);
   //Text
-    rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
    fill(red);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
     //ActualTextPlacement
@@ -83,8 +86,8 @@ void draw() {
     noFill();
   textAlign(CENTER, CENTER);
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-  size = 20;
-  textFont(QButtonFont, size);
+  size = 40;
+  textFont(HalFont, size);
   text(HapHalTitle, HTitleX, HTitleY, HTitleWidth, HTitleHeight);
   //
     if ( brightnessControl==true ) //grey scale 1/2 tint
@@ -103,7 +106,7 @@ tint (255, brightnessNumber);
   } else {
     noTint();
   }
-  //
+  //  
 } //End draw
 //
 void keyPressed() {
