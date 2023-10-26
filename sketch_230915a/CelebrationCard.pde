@@ -6,7 +6,7 @@ float PImageX, PImageY, PImageWidth, PImageHeight;
 PImage Pumpkin, BlackHole;
 Boolean nightmode=false; //Note: clock can turn it on automatically
 Boolean brightnessControl=false; //Note arrows control
-int brightnessNumber=128; //range:1-225
+int brightnessNumber=128, BRed=255, BGreen=255; //range:1-225
 color red=#ED3535, white=#FFFFFF, orange=#F58B19, dorange=#B75F00;
 String QButton = "X";
 PFont QButtonFont, HalFont, HDescFont;
@@ -119,13 +119,29 @@ void draw() {
   //println (brightnessNumber);
   // if ( nightmode==true ) tint (64, 64, 40); //rey scale 1/2  tint (i.e. 128/256=1/2)
   if ( nightmode==true ) {
-    tint (81, 177, 82);
+    tint (BRed, BGreen, 40);
     //println(nightmode);
   } else {
+    noTint();
   }
-  background(0);
+  //Brightness color control
+  //RED
+  if (BRed<1) {
+    BRed=1;
+  } else if (BRed>255) {
+    BRed=255;
+  }
+  //
+  //GREEN
+    if (BGreen<1) {
+    BGreen=1;
+  } else if (BGreen>255) {
+    BGreen=255;
+  }
   //
 } //End draw
+   background(0);
+if (nightmode==true) tint(BRed, BGreen, 40);
 //
 void keyPressed() {
   if ( key=='n'|| key=='N') {
