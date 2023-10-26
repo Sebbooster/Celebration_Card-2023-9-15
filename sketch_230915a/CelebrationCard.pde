@@ -70,6 +70,7 @@ void setup() {
 } //End setup
 //
 void draw() {
+  background(0);
   fill(dorange);
   rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   //
@@ -114,6 +115,7 @@ void draw() {
     } else if (brightnessNumber>255) {
       brightnessNumber = 255;
     } else {
+      noTint();
     }
   tint (255, brightnessNumber);
   //println (brightnessNumber);
@@ -122,7 +124,7 @@ void draw() {
     tint (BRed, BGreen, 40);
     //println(nightmode);
   } else {
-    noTint();
+    
   }
   //Brightness color control
   //RED
@@ -139,9 +141,9 @@ void draw() {
     BGreen=255;
   }
   //
-} //End draw
-   background(0);
 if (nightmode==true) tint(BRed, BGreen, 40);
+} //End draw
+
 //
 void keyPressed() {
   if ( key=='n'|| key=='N') {
