@@ -1,20 +1,26 @@
 //Global Variables
 int appWidth, appHeight;
+int brightnessNumber=128, BRed=255, BGreen=255; //range:1-225
+int sizeFont, size;
+//
 float xRectBackground, yRectBackground, widthRectBackground, heightRectBackground;
 float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
 float PImageX, PImageY, PImageWidth, PImageHeight;
+float HDescX, HDescY, HDescWidth, HDescHeight;
+float HTitleX, HTitleY, HTitleWidth, HTitleHeight;
+//
 PImage Pumpkin, BlackHole;
+//
 Boolean nightmode=false; //Note: clock can turn it on automatically
 Boolean brightnessControl=false; //Note arrows control
-int brightnessNumber=128, BRed=255, BGreen=255; //range:1-225
-color red=#ED3535, white=#FFFFFF, orange=#F58B19, dorange=#B75F00;
+//
+color red=#ED3535, white=#FFFFFF, orange=#F58B19, dorange=#B75F00, HOC=#FFFFFF, blackInk=#000000;
+//
 String QButton = "X";
-PFont QButtonFont, HalFont, HDescFont;
-int sizeFont, size;
-float HTitleX, HTitleY, HTitleWidth, HTitleHeight;
 String HapHalTitle = "Happy Halloween!";
-float HDescX, HDescY, HDescWidth, HDescHeight;
 String HDesc = "Hello, Daniel Vimar! I want to let you know I am hosting a Halloween party, and that you are invited! The event will be happening on October 31st, and it will be going from 3:00 PM till 7:00 PM. Please bring snacks and drinks if you want to eat or drink before dinner, which will be provided. Please come in a Halloween costume! Thank you for reading, and I hope to see you soon!           -Sincerely, Sebastian.";
+//
+PFont QButtonFont, HalFont, HDescFont;
 //
 void setup() {
   //Fonts and Text Work
@@ -78,15 +84,20 @@ void draw() {
   fill(white);
   rect(HTitleX, HTitleY, HTitleWidth, HTitleHeight);
   rect(HDescX, HDescY, HDescWidth, HDescHeight);
+  rect( xRectQuit, yRectQuit, widthRectQuit, heightRectQuit );
   //Image
   //image(BlackHole, xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
   image(Pumpkin, PImageX, PImageY, PImageWidth, PImageHeight);
+  //hoverbuttoncolor
+   if ( mouseX>xRectQuit && mouseX<xRectQuit+widthRectQuit && mouseY>yRectQuit && mouseY<yRectQuit+heightRectQuit ) { //Button 1
+    HOC = red;
+    fill( HOC );
+    rect( xRectQuit, yRectQuit, widthRectQuit, heightRectQuit );
+    fill( white );
+   }
   //Text
-  fill(red);
-  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   //ActualTextPlacement
-  fill(white); //ink
-  noFill();
+  fill(blackInk); //ink
   textAlign(CENTER, CENTER);
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 20;
